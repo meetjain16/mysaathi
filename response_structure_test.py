@@ -26,7 +26,7 @@ def test_chat_api_response_structure():
         }
     ]
     
-    print("Testing Aurora Chat API Response Structure")
+    print("Testing Saarthi Chat API Response Structure")
     print("=" * 60)
     
     for test in test_messages:

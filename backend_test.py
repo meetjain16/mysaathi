@@ -4,7 +4,7 @@ import time
 import json
 from datetime import datetime
 
-class AuroraAPITester:
+class SaarthiAPITester:
     def __init__(self, base_url="https://e7a26a60-3d28-42e6-b4c0-ffce361f1b1e.preview.emergentagent.com"):
         self.base_url = base_url
         self.session_id = f"test_session_{uuid.uuid4()}"
@@ -202,7 +202,7 @@ class AuroraAPITester:
 
     def run_all_tests(self):
         """Run all API tests"""
-        print("🚀 Starting Aurora Voice AI Assistant API Tests")
+        print("🚀 Starting Saarthi Voice AI Assistant API Tests")
         print("=" * 60)
         
         # Basic functionality tests
@@ -246,6 +246,6 @@ class AuroraAPITester:
         return all(test_results.values())
 
 if __name__ == "__main__":
-    tester = AuroraAPITester()
+    tester = SaarthiAPITester()
     success = tester.run_all_tests()
     exit(0 if success else 1)

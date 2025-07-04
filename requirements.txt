@@ -1,4 +1,4 @@
-# Aurora AI Assistant - Local Development Requirements
+# Saarthi AI Assistant - Local Development Requirements
 
 ## System Requirements
 - Python 3.8 or higher

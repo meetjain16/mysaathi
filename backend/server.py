@@ -58,7 +58,7 @@ if groq_client is None:
     print("❌ No AI client available - API will not function properly")
 
 app = FastAPI(
-    title="Aurora AI Assistant API",
+    title="Saarthi AI Assistant API",
     description="Multi-agent voice-based AI assistant with specialized personas",
     version="1.0.0"
 )
@@ -78,7 +78,7 @@ try:
     client = MongoClient(MONGO_URL)
     # Test the connection
     client.admin.command('ping')
-    db = client.aurora_db2
+    db = client.Saarthi_db2
     print("✅ MongoDB connection successful")
 except Exception as e:
     print(f"❌ MongoDB connection failed: {e}")
@@ -116,29 +116,29 @@ class ConversationResponse(BaseModel):
     session_id: str
     message_id: str
 
-# Aurora Agent System
-class AuroraPersona:
+# Saarthi Agent System
+class SaarthiPersona:
     def __init__(self, name: str, prompt: str, keywords: List[str]):
         self.name = name
         self.prompt = prompt
         self.keywords = keywords
 
-class AuroraAgentSystem:
+class SaarthiAgentSystem:
     def __init__(self):
         self.personas = {
-            "general": AuroraPersona(
+            "general": SaarthiPersona(
                 name="General Assistant",
-                prompt="""You are Aurora, a helpful and friendly AI assistant. You provide clear, informative responses to general questions and engage in natural conversation. Keep responses conversational but informative, as if speaking to a friend. Be warm, empathetic, and helpful.""",
+                prompt="""You are Saarthi, a helpful and friendly AI assistant. You provide clear, informative responses to general questions and engage in natural conversation. Keep responses conversational but informative, as if speaking to a friend. Be warm, empathetic, and helpful.""",
                 keywords=["hello", "hi", "help", "what", "how", "tell me", "explain", "general", "question"]
             ),
-            "education": AuroraPersona(
+            "education": SaarthiPersona(
                 name="Education Specialist",
-                prompt="""You are Aurora's Education Specialist persona. You help with learning, studying, academic questions, homework, explanations of concepts, and educational guidance. You're encouraging, patient, and adapt your explanations to different learning levels. Use examples and analogies to make complex topics easier to understand.""",
+                prompt="""You are Saarthi's Education Specialist persona. You help with learning, studying, academic questions, homework, explanations of concepts, and educational guidance. You're encouraging, patient, and adapt your explanations to different learning levels. Use examples and analogies to make complex topics easier to understand.""",
                 keywords=["study", "learn", "school", "homework", "math", "science", "history", "explain", "teach", "education", "academic", "university", "college", "lesson"]
             ),
-            "mental_health": AuroraPersona(
+            "mental_health": SaarthiPersona(
                 name="Mental Health Support",
-                prompt="""You are Aurora's Mental Health Support persona. You provide compassionate, supportive responses for emotional well-being, stress management, and mental health topics. You're empathetic, non-judgmental, and encourage professional help when appropriate. Focus on active listening, validation, and helpful coping strategies. Always remind users to seek professional help for serious mental health concerns.""",
+                prompt="""You are Saarthi's Mental Health Support persona. You provide compassionate, supportive responses for emotional well-being, stress management, and mental health topics. You're empathetic, non-judgmental, and encourage professional help when appropriate. Focus on active listening, validation, and helpful coping strategies. Always remind users to seek professional help for serious mental health concerns.""",
                 keywords=["stress", "anxiety", "depression", "mental", "emotional", "feeling", "mood", "therapy", "counseling", "support", "wellness", "cope", "overwhelmed", "sad", "worried"]
             ),
         }
@@ -175,7 +175,7 @@ class AuroraAgentSystem:
         context = "Previous conversation context:\n"
         for i in range(0, len(recent_history), 2):
             if i + 1 < len(recent_history):
-                context += f"User: {recent_history[i]}\nAurora: {recent_history[i+1]}\n"
+                context += f"User: {recent_history[i]}\nSaarthi: {recent_history[i+1]}\n"
         
         return context
 
@@ -257,15 +257,15 @@ class AuroraAgentSystem:
             }
 
 # Initialize the agent system
-aurora_system = AuroraAgentSystem()
+Saarthi_system = SaarthiAgentSystem()
 
 @app.get("/")
 async def root():
-    return {"message": "Aurora Multi-Agent Voice AI Assistant API"}
+    return {"message": "Saarthi Multi-Agent Voice AI Assistant API"}
 
 @app.get("/api/health")
 async def health_check():
-    return {"status": "healthy", "service": "Aurora AI Assistant"}
+    return {"status": "healthy", "service": "Saarthi AI Assistant"}
 
 @app.post("/api/debug/request")
 async def debug_request(request: dict):
@@ -299,8 +299,8 @@ async def chat(request: ConversationRequest):
                 message_id=str(uuid.uuid4())
             )
         
-        # Generate response using Aurora system
-        result = aurora_system.generate_response(
+        # Generate response using Saarthi system
+        result = Saarthi_system.generate_response(
             message=request.message,
             session_id=request.session_id,
             persona_preference=request.persona_preference
@@ -349,7 +349,7 @@ async def chat(request: ConversationRequest):
 async def get_personas():
     """Get available personas"""
     personas_info = {}
-    for key, persona in aurora_system.personas.items():
+    for key, persona in Saarthi_system.personas.items():
         personas_info[key] = {
             "name": persona.name,
             "keywords": persona.keywords
@@ -442,8 +442,8 @@ async def clear_conversation_history(session_id: str):
         result = db.conversations.delete_many({"session_id": session_id})
         
         # Also clear from memory if it exists
-        if hasattr(aurora_system, 'conversation_history') and session_id in aurora_system.conversation_history:
-            del aurora_system.conversation_history[session_id]
+        if hasattr(Saarthi_system, 'conversation_history') and session_id in Saarthi_system.conversation_history:
+            del Saarthi_system.conversation_history[session_id]
         
         return {
             "session_id": session_id,

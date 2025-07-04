@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Aurora AI Assistant - Development Helper Script
+# Saarthi AI Assistant - Development Helper Script
 # Quick commands for common development tasks
 
 set -e
@@ -24,7 +24,7 @@ print_warning() {
 
 case "$1" in
     "start")
-        print_status "Starting Aurora AI Assistant..."
+        print_status "Starting Saarthi AI Assistant..."
         echo "Starting backend and frontend..."
         
         # Start backend in background
@@ -40,10 +40,10 @@ case "$1" in
         FRONTEND_PID=$!
         cd ..
         
-        print_success "Aurora started!"
+        print_success "Saarthi started!"
         print_status "Backend PID: $BACKEND_PID"
         print_status "Frontend PID: $FRONTEND_PID"
-        print_status "Access Aurora at: http://localhost:3000"
+        print_status "Access Saarthi at: http://localhost:3000"
         print_status "API docs at: http://localhost:8001/docs"
         print_warning "Press Ctrl+C to stop both services"
         
@@ -106,7 +106,7 @@ case "$1" in
         ;;
         
     "status")
-        print_status "Checking Aurora status..."
+        print_status "Checking Saarthi status..."
         
         # Check if backend is running
         if curl -s http://localhost:8001/api/health > /dev/null; then
@@ -143,7 +143,7 @@ case "$1" in
         ;;
         
     *)
-        echo "Aurora AI Assistant - Development Helper"
+        echo "Saarthi AI Assistant - Development Helper"
         echo "Usage: $0 {start|test|install|clean|status|logs}"
         echo ""
         echo "Commands:"
@@ -155,7 +155,7 @@ case "$1" in
         echo "  logs    - Show recent logs"
         echo ""
         echo "Examples:"
-        echo "  $0 start    # Start Aurora"
+        echo "  $0 start    # Start Saarthi"
         echo "  $0 test     # Run tests"
         echo "  $0 status   # Check status"
         exit 1

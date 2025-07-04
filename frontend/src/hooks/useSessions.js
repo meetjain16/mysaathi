@@ -8,7 +8,7 @@ const useSessions = (backendUrl) => {
 
   // Load sessions from localStorage on mount
   useEffect(() => {
-    const savedSessions = localStorage.getItem('aurora_sessions');
+    const savedSessions = localStorage.getItem('Saarthi_sessions');
     if (savedSessions) {
       try {
         const parsedSessions = JSON.parse(savedSessions);
@@ -38,7 +38,7 @@ const useSessions = (backendUrl) => {
     };
     setSessions([initialSession]);
     setCurrentSessionId(initialSession.id);
-    localStorage.setItem('aurora_sessions', JSON.stringify([initialSession]));
+    localStorage.setItem('Saarthi_sessions', JSON.stringify([initialSession]));
   };
 
   const createNewSession = () => {
@@ -58,7 +58,7 @@ const useSessions = (backendUrl) => {
     setNewSessionName('');
     setShowSessionModal(false);
     
-    localStorage.setItem('aurora_sessions', JSON.stringify(updatedSessions));
+    localStorage.setItem('Saarthi_sessions', JSON.stringify(updatedSessions));
     return newSession.id;
   };
 
@@ -115,7 +115,7 @@ const useSessions = (backendUrl) => {
       }
     }
     
-    localStorage.setItem('aurora_sessions', JSON.stringify(updatedSessions));
+    localStorage.setItem('Saarthi_sessions', JSON.stringify(updatedSessions));
   };
 
   const updateSessionLastActive = (sessionId) => {

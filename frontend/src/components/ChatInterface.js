@@ -38,7 +38,7 @@ const ChatInterface = ({
       <div className="p-4 border-b border-white/20">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold text-white">Aurora</h1>
+            <h1 className="text-2xl font-bold text-white">Saarthi</h1>
             <div className={`flex items-center space-x-2 px-3 py-1 rounded-full text-sm ${
               isConnected ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
             }`}>
@@ -90,7 +90,7 @@ const ChatInterface = ({
           {conversation.length === 0 ? (
             <div className="text-center text-white/70 mt-20">
               <div className="text-6xl mb-4">🎤</div>
-              <p className="text-xl mb-2">Hi! I'm Aurora, your AI assistant.</p>
+              <p className="text-xl mb-2">Hi! I'm Saarthi, your AI assistant.</p>
               <p className="text-lg">Click the microphone to start talking, or type your message below.</p>
             </div>
           ) : (

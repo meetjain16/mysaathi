@@ -28,7 +28,7 @@ def test_persona_classification():
         {"message": "Hello, how are you?", "expected": "General Assistant", "category": "General"}
     ]
     
-    print("Testing Aurora Persona Classification Logic")
+    print("Testing Saarthi Persona Classification Logic")
     print("=" * 60)
     
     results = {

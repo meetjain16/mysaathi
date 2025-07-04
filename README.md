@@ -1,8 +1,8 @@
-# Aurora - Multi-Agent Voice-Based AI Assistant
+# Saarthi - Multi-Agent Voice-Based AI Assistant
 
 <div align="center">
 
-![Aurora Logo](https://via.placeholder.com/200x100/4F46E5/FFFFFF?text=Aurora+AI)
+![Saarthi Logo](https://via.placeholder.com/200x100/4F46E5/FFFFFF?text=Saarthi+AI)
 
 **A sophisticated voice-based AI assistant with multiple specialized personas**
 
@@ -16,7 +16,7 @@
 
 ## 🌟 Overview
 
-Aurora is an advanced multi-agent voice-based AI assistant that provides intelligent, domain-specific support through natural voice conversations. Built with a modern tech stack, Aurora features three specialized AI personas that adapt to different user needs:
+Saarthi is an advanced multi-agent voice-based AI assistant that provides intelligent, domain-specific support through natural voice conversations. Built with a modern tech stack, Saarthi features three specialized AI personas that adapt to different user needs:
 
 - **🎯 General Assistant**: Friendly, helpful responses for everyday questions
 - **📚 Education Specialist**: Patient, educational guidance and learning support  
@@ -74,8 +74,8 @@ Aurora is an advanced multi-agent voice-based AI assistant that provides intelli
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/aurora-ai-assistant.git
-cd aurora-ai-assistant
+git clone https://github.com/yourusername/Saarthi-ai-assistant.git
+cd Saarthi-ai-assistant
 ```
 
 ### 2. Backend Setup
@@ -168,7 +168,7 @@ cd frontend
 yarn start
 ```
 
-### 8. Access Aurora
+### 8. Access Saarthi
 
 Open your browser and navigate to:
 - **Frontend**: http://localhost:3000
@@ -181,12 +181,12 @@ Open your browser and navigate to:
 
 1. **Click the microphone button** to start voice input
 2. **Speak your question** clearly into your microphone
-3. **Aurora will respond** with both text and voice
-4. **Click the stop button** to interrupt Aurora's speech if needed
+3. **Saarthi will respond** with both text and voice
+4. **Click the stop button** to interrupt Saarthi's speech if needed
 
 ### Persona Selection
 
-- **Auto-Select**: Let Aurora automatically choose the best persona based on your question
+- **Auto-Select**: Let Saarthi automatically choose the best persona based on your question
 - **Manual Selection**: Use the dropdown to force a specific persona:
   - General Assistant for everyday questions
   - Education Specialist for learning and academic topics
@@ -196,20 +196,20 @@ Open your browser and navigate to:
 
 **General Assistant:**
 ```
-You: "Hello Aurora, what's the weather like today?"
-Aurora: "Hi there! I'd be happy to help, but I don't have access to real-time weather data..."
+You: "Hello Saarthi, what's the weather like today?"
+Saarthi: "Hi there! I'd be happy to help, but I don't have access to real-time weather data..."
 ```
 
 **Education Specialist:**  
 ```
 You: "Can you explain photosynthesis?"
-Aurora: "Absolutely! Photosynthesis is the fascinating process by which plants convert sunlight..."
+Saarthi: "Absolutely! Photosynthesis is the fascinating process by which plants convert sunlight..."
 ```
 
 **Mental Health Support:**
 ```
 You: "I'm feeling really stressed about my exams"
-Aurora: "I hear that you're feeling stressed about your exams, and that's completely understandable..."
+Saarthi: "I hear that you're feeling stressed about your exams, and that's completely understandable..."
 ```
 
 ## 🔧 API Reference
@@ -217,7 +217,7 @@ Aurora: "I hear that you're feeling stressed about your exams, and that's comple
 ### Core Endpoints
 
 #### POST `/api/chat`
-Send a message to Aurora and receive an AI response.
+Send a message to Saarthi and receive an AI response.
 
 **Request Body:**
 ```json
@@ -270,7 +270,7 @@ Health check endpoint.
 ### Project Structure
 
 ```
-aurora-ai-assistant/
+Saarthi-ai-assistant/
 ├── backend/
 │   ├── server.py          # FastAPI application
 │   ├── requirements.txt   # Python dependencies
@@ -292,8 +292,8 @@ aurora-ai-assistant/
 
 1. **Update Backend** (`backend/server.py`):
 ```python
-# Add to AuroraAgentSystem.__init__()
-self.personas["new_persona"] = AuroraPersona(
+# Add to SaarthiAgentSystem.__init__()
+self.personas["new_persona"] = SaarthiPersona(
     name="New Persona Name",
     prompt="System prompt for the new persona...",
     keywords=["keyword1", "keyword2", ...]
@@ -401,7 +401,7 @@ REACT_APP_VOICE_LANG=en-US                  # Speech recognition language
 #### Persona Customization
 Edit persona prompts in `backend/server.py` to change AI behavior:
 ```python
-prompt="""You are Aurora's [Persona Name]. You [behavior description]..."""
+prompt="""You are Saarthi's [Persona Name]. You [behavior description]..."""
 ```
 
 #### UI Customization
@@ -445,16 +445,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/aurora-ai-assistant/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/aurora-ai-assistant/discussions)
-- **Email**: support@aurora-ai.com
+- **Issues**: [GitHub Issues](https://github.com/yourusername/Saarthi-ai-assistant/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/Saarthi-ai-assistant/discussions)
+- **Email**: support@Saarthi-ai.com
 
 ---
 
 <div align="center">
 
-**Built with ❤️ by the Aurora AI Team**
+**Built with ❤️ by the Saarthi AI Team**
 
-[Website](https://aurora-ai.com) • [Documentation](https://docs.aurora-ai.com) • [Twitter](https://twitter.com/aurora_ai)
+[Website](https://Saarthi-ai.com) • [Documentation](https://docs.Saarthi-ai.com) • [Twitter](https://twitter.com/Saarthi_ai)
 
 </div>

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Aurora AI Assistant - Local Setup Script
-# This script helps you set up Aurora locally with minimal effort
+# Saarthi AI Assistant - Local Setup Script
+# This script helps you set up Saarthi locally with minimal effort
 
 set -e  # Exit on any error
 
-echo "🌟 Aurora AI Assistant - Local Setup"
+echo "🌟 Saarthi AI Assistant - Local Setup"
 echo "====================================="
 
 # Colors for output
@@ -167,7 +167,7 @@ start_mongodb() {
 # Main setup function
 main() {
     echo ""
-    print_status "Starting Aurora AI Assistant setup..."
+    print_status "Starting Saarthi AI Assistant setup..."
     
     check_os
     check_prerequisites
@@ -181,7 +181,7 @@ main() {
     print_status "Next steps:"
     echo "1. Get your Groq API key from: https://console.groq.com/"
     echo "2. Update GROQ_API_KEY in backend/.env"
-    echo "3. Run the following commands to start Aurora:"
+    echo "3. Run the following commands to start Saarthi:"
     echo ""
     echo "   # Terminal 1 - Start Backend:"
     echo "   cd backend"
