@@ -5,4 +5,5 @@ python-multipart==0.0.6
 python-dotenv==1.0.0
 groq==0.4.1
 pydantic>=2.6.4
+openai
 motor==3.3.2
