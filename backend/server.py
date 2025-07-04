@@ -22,7 +22,7 @@ except ImportError:
 load_dotenv()
 
 # Get API key from environment variable
-
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 # Initialize Groq client with provided API key
 # Handling compatibility issues with the Groq client
