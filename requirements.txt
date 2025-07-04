@@ -1,0 +1,45 @@
+# Aurora AI Assistant - Local Development Requirements
+
+## System Requirements
+- Python 3.8 or higher
+- Node.js 16 or higher  
+- Yarn package manager
+- MongoDB 6.0 or higher
+- Modern web browser with Web Speech API support (Chrome, Firefox, Safari)
+
+## Python Dependencies (backend/requirements.txt)
+fastapi==0.104.1
+uvicorn==0.24.0
+pymongo==4.6.0
+python-multipart==0.0.6
+python-dotenv==1.0.0
+groq==0.4.1
+pydantic==2.5.0
+motor==3.3.2
+
+## Node.js Dependencies (frontend/package.json)
+- React 18+
+- Tailwind CSS 3+
+- Web Speech API (browser built-in)
+
+## External Services
+- Groq API (for LLama model access)
+- MongoDB (for conversation storage)
+
+## Optional Tools
+- pytest (for backend testing)
+- jest (for frontend testing)
+- MongoDB Compass (GUI for database management)
+
+
+
+#python -m venv venv
+# 1. Change Your DNS to Google DNS
+# On Windows:
+# Open Control Panel → Network and Internet → Network and Sharing Center → Change adapter settings.
+# Right-click your active network, choose Properties.
+# Select "Internet Protocol Version 4 (TCP/IPv4)", click Properties.
+# Set DNS to:
+# Preferred: 8.8.8.8
+# Alternate: 8.8.4.4
+# Click OK and restart your connection
