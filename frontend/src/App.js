@@ -18,6 +18,7 @@ const App = () => {
   const [currentPersona, setCurrentPersona] = useState('auto');
   const [isLoading, setIsLoading] = useState(true);
   const [voiceInputError, setVoiceInputError] = useState('');
+  const [showMobileSessions, setShowMobileSessions] = useState(false);
 
   // Custom Hooks
   const {
@@ -145,54 +146,63 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-blue-700">
-          {/* <div className="min-h-screen bg-gradient-to-br from-blue-800 via-purple-700  to-green-500"> */}
-
-      <div className="flex h-screen ">
-        {/* Left Panel - Sessions */}
-        <SessionPanel
-          sessions={sessions}
-          currentSessionId={currentSessionId}
-          showSessionModal={showSessionModal}
-          newSessionName={newSessionName}
-          onSessionClick={handleSessionClick}
-          onNewSession={handleNewSession}
-          onCreateSession={handleCreateSession}
-          onDeleteSession={handleDeleteSession}
-          onSessionNameChange={setNewSessionName}
-          onCloseModal={() => setShowSessionModal(false)}
-        />
-
+      {/* Mobile: Session toggle button */}
+      <div className="md:hidden flex justify-between items-center p-2 bg-blue-800">
+        <button
+          className="text-white px-4 py-2 rounded bg-indigo-600"
+          onClick={() => setShowMobileSessions(!showMobileSessions)}
+        >
+          {showMobileSessions ? 'Hide Sessions' : 'Show Sessions'}
+        </button>
+        <span className="text-white font-bold text-lg">Saarthi</span>
+      </div>
+      <div className="flex flex-col md:flex-row h-[calc(100vh-48px)] md:h-screen">
+        {/* SessionPanel: show as drawer on mobile, sidebar on desktop */}
+        <div className={`fixed inset-0 z-40 bg-black/40 md:static md:bg-transparent transition-all duration-300 ${showMobileSessions ? 'block' : 'hidden'} md:block`}>
+          <SessionPanel
+            sessions={sessions}
+            currentSessionId={currentSessionId}
+            showSessionModal={showSessionModal}
+            newSessionName={newSessionName}
+            onSessionClick={(id) => { setShowMobileSessions(false); handleSessionClick(id); }}
+            onNewSession={handleNewSession}
+            onCreateSession={handleCreateSession}
+            onDeleteSession={handleDeleteSession}
+            onSessionNameChange={setNewSessionName}
+            onCloseModal={() => setShowSessionModal(false)}
+          />
+        </div>
         {/* Main Chat Area */}
-        {isLoading ? (
-          <div className="flex-1 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-400"></div>
-          </div>
-        ) : (
-          <>
-            <ChatInterface
-              conversation={conversation}
-              messagesEndRef={messagesEndRef}
-              currentPersona={currentPersona}
-              onPersonaChange={setCurrentPersona}
-              onSendMessage={handleSendMessage}
-              onClearConversation={handleClearConversation}
-              onClearFromDB={handleClearChatFromDB}
-              isConnected={isConnected}
-              error={chatError || speechError}
-            />
-
-            {/* Voice Controls */}
-            <VoiceControls
-              isListening={isListening}
-              isSpeaking={isSpeaking}
-              onStartListening={handleStartListening}
-              onStopListening={stopListening}
-              onStopSpeaking={stopSpeaking}
-              isConnected={isConnected}
-              voiceInputError={voiceInputError}
-            />
-          </>
-        )}
+        <div className="flex-1 flex flex-col relative">
+          {isLoading ? (
+            <div className="flex-1 flex items-center justify-center">
+              <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-400"></div>
+            </div>
+          ) : (
+            <>
+              <ChatInterface
+                conversation={conversation}
+                messagesEndRef={messagesEndRef}
+                currentPersona={currentPersona}
+                onPersonaChange={setCurrentPersona}
+                onSendMessage={handleSendMessage}
+                onClearConversation={handleClearConversation}
+                onClearFromDB={handleClearChatFromDB}
+                isConnected={isConnected}
+                error={chatError || speechError}
+              />
+              <VoiceControls
+                isListening={isListening}
+                isSpeaking={isSpeaking}
+                onStartListening={handleStartListening}
+                onStopListening={stopListening}
+                onStopSpeaking={stopSpeaking}
+                isConnected={isConnected}
+                voiceInputError={voiceInputError}
+              />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

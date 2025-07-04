@@ -13,11 +13,21 @@ const SessionPanel = ({
   onCloseModal
 }) => {
   return (
-    <div className="w-80 bg-white/10 backdrop-blur-md border-r border-white/20 h-screen overflow-y-auto">
+    <div className="w-full md:w-80 bg-white/10 backdrop-blur-md border-r border-white/20 h-full md:h-screen overflow-y-auto relative">
+      {/* Mobile close button */}
+      <button
+        className="absolute top-2 right-2 md:hidden p-2 bg-gray-800 text-white rounded-full z-50"
+        onClick={onCloseModal}
+        aria-label="Close Sessions"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
       {/* Header */}
       <div className="p-4 border-b border-white/20">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-white">Sessions</h2>
+          <h2 className="text-xl md:text-xl font-semibold text-white">Sessions</h2>
           <button
             onClick={onNewSession}
             className="p-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
@@ -27,18 +37,16 @@ const SessionPanel = ({
             </svg>
           </button>
         </div>
-        
         <div className="text-sm text-white/70">
           {sessions.length} session{sessions.length !== 1 ? 's' : ''}
         </div>
       </div>
-
       {/* Sessions List */}
       <div className="p-4 space-y-2">
         {sessions.map((session) => (
           <div
             key={session.id}
-            className={`p-3 rounded-lg border cursor-pointer transition-all ${
+            className={`p-3 rounded-lg border cursor-pointer transition-all text-sm md:text-base ${
               session.id === currentSessionId
                 ? 'bg-indigo-600/30 border-indigo-400 text-white'
                 : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
@@ -52,12 +60,10 @@ const SessionPanel = ({
                   {new Date(session.lastActive).toLocaleDateString()}
                 </p>
               </div>
-              
               <div className="flex items-center space-x-2">
                 {session.id === currentSessionId && (
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 )}
-                
                 {session.id !== currentSessionId && (
                   <button
                     onClick={(e) => {
@@ -77,11 +83,10 @@ const SessionPanel = ({
           </div>
         ))}
       </div>
-
       {/* New Session Modal */}
       {showSessionModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96">
+          <div className="bg-white rounded-lg p-6 w-full max-w-xs md:w-96">
             <h3 className="text-lg font-semibold mb-4">Create New Session</h3>
             <input
               type="text"
